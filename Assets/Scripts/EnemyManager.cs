@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour
 
     public float wanderDelay;
 
-    void Start()
+    void Awake()
     {
         if (instance == null)
         {
