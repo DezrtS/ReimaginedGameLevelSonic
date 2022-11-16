@@ -1948,7 +1948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 10
-  jumpVelocity: 5
+  jumpVelocity: 7.5
   groundCheckDistance: 0.75
   groundLayer:
     serializedVersion: 2
@@ -2416,6 +2416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 328992248}
   - component: {fileID: 328992249}
+  - component: {fileID: 328992250}
   m_Layer: 0
   m_Name: Square (10)
   m_TagString: Untagged
@@ -2490,6 +2491,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &328992250
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328992247}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &335670134
 GameObject:
   m_ObjectHideFlags: 0
@@ -7069,7 +7096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!68 &1182792872
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -7191,7 +7218,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -8196,7 +8223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!68 &1346783041
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -8362,7 +8389,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -9509,6 +9536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1549102559}
   - component: {fileID: 1549102560}
+  - component: {fileID: 1549102561}
   m_Layer: 0
   m_Name: Square (4)
   m_TagString: Untagged
@@ -9583,6 +9611,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1549102561
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549102558}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1554030342
 GameObject:
   m_ObjectHideFlags: 0
@@ -9929,6 +9983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1611357367}
   - component: {fileID: 1611357368}
+  - component: {fileID: 1611357369}
   m_Layer: 0
   m_Name: Square (12)
   m_TagString: Untagged
@@ -10003,6 +10058,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1611357369
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611357366}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1661584841
 GameObject:
   m_ObjectHideFlags: 0
@@ -11954,6 +12035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957146413}
   - component: {fileID: 1957146414}
+  - component: {fileID: 1957146415}
   m_Layer: 0
   m_Name: Square (11)
   m_TagString: Untagged
@@ -12028,6 +12110,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1957146415
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957146412}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1959722956
 GameObject:
   m_ObjectHideFlags: 0
@@ -12297,11 +12405,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049060527046771187, guid: 24b34a3d382b549439293c5ce519bcd1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.62
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 9049060527046771187, guid: 24b34a3d382b549439293c5ce519bcd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: 9049060527046771187, guid: 24b34a3d382b549439293c5ce519bcd1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12774,11 +12882,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9049060527046771187, guid: 24b34a3d382b549439293c5ce519bcd1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.44
+      value: 20.44
       objectReference: {fileID: 0}
     - target: {fileID: 9049060527046771187, guid: 24b34a3d382b549439293c5ce519bcd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.34
+      value: -1.47
       objectReference: {fileID: 0}
     - target: {fileID: 9049060527046771187, guid: 24b34a3d382b549439293c5ce519bcd1, type: 3}
       propertyPath: m_LocalPosition.z
