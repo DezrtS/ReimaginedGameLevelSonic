@@ -1825,7 +1825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 149248993}
   - component: {fileID: 149248992}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sonic Grass (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6781,7 +6781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 820758258}
   - component: {fileID: 820758257}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sonic Grass (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13003,7 +13003,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1451149185}
   - component: {fileID: 1451149184}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sonic Grass (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
