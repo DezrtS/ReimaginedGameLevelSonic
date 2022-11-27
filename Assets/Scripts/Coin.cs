@@ -7,26 +7,14 @@ public class Coin : MonoBehaviour
 {
     public Text display;
     int score = 0;
-  
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-       // if (collision.gameObject.tag == "Coin")
-        //{
+        if (collision.CompareTag("Player"))
+        {
             Destroy(this.gameObject);
-	    score = score + 1;
-	    display.text = score.ToString();
-        //}
+	        score += 1;
+	        display.text = score.ToString();
+        }
     }
 }
