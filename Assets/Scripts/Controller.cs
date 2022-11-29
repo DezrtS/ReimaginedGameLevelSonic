@@ -14,8 +14,13 @@ public class Controller : MonoBehaviour
     [SerializeField] private float stoppingDistance;
     [SerializeField] private LayerMask wallLayer;
 
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float linerarDrag;
+
     private Rigidbody2D rb;
     private float gravityScale;
+    
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -55,24 +60,7 @@ public class Controller : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Climbable")) climbLadder();
-    }
-
-    private void climbLadder()
-    {
-        rb.gravityScale = 0f;
-
-        if (Input.GetKey(KeyCode.W) && !CheckIfPlayerShouldStop(Vector2.up))
-        {
-            transform.position += transform.up * MovementSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.S) && !CheckIfPlayerShouldStop(Vector2.down))
-        {
-            transform.position += -transform.up * MovementSpeed * Time.deltaTime;
-        }
-    }*/
+    
 
     private void OnTriggerExit2D(Collider2D Other)
     {
