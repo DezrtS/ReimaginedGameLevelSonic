@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Controller : MonoBehaviour
@@ -16,7 +17,9 @@ public class Controller : MonoBehaviour
 
     private Rigidbody2D rb;
     private float gravityScale;
-    
+
+    public GameOver gameOverScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,5 +82,11 @@ public class Controller : MonoBehaviour
         else return false;
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "GameOver")
+        {
+            SceneManager.LoadScene("End");
+        }
+    }
 }

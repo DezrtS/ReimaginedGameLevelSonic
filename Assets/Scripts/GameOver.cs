@@ -4,14 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameOverScreen : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
-    public Text pointsText;
-
-    public void Setup(int score)
+    public void Setup()
     {
         gameObject.SetActive(true);
-        pointsText.text = score.ToString() + " POINTS";
     }
 
     public void RestartButton()

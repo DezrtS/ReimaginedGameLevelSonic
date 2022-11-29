@@ -7,7 +7,6 @@ public class Coin : MonoBehaviour
 {
     public Text display;
     int score = 0;
-    public GameOverScreen gameOverScreen;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,11 +15,6 @@ public class Coin : MonoBehaviour
             Destroy(this.gameObject);
 	        score += 1;
 	        display.text = score.ToString();
-        }
-
-        if (collision.tag == "GameOver")
-        {
-            gameOverScreen.Setup(score);
         }
     }
 }
