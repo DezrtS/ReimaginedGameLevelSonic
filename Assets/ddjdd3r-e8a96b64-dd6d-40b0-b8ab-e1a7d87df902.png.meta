@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -4815,12 +4815,12 @@ TextureImporter:
       ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_122: 1749800618
       ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_200: -1428027824
       ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_23: 103197747
-      ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_89: 1883542380
-      ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_126: 935100791
       ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_142: -1558015604
+      ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_89: 1883542380
       ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_197: -2010811420
-      ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_80: -1145374873
+      ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_126: 935100791
       ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_214: 510175995
+      ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_80: -1145374873
       ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_83: -931994695
       ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_71: -1793668128
       ddjdd3r-e8a96b64-dd6d-40b0-b8ab-e1a7d87df902_59: 242279735

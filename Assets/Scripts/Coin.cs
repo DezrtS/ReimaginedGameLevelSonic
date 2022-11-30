@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
+using UnityEngine.SceneManagement;
 
 public class Coin : MonoBehaviour
 {
     public Text display;
-    int score = 0;
+    int score = 5;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Coin"))
         {
-            Destroy(this.gameObject);
-	        score += 1;
+            Destroy(other.gameObject);
+	        score ++;
 	        display.text = score.ToString();
+            print(score);
         }
+
+	if (score == 0)
+	{
+		SceneManager.LoadScene("End");
+	}
     }
 }
