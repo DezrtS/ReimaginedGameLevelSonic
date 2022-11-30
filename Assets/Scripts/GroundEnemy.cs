@@ -6,13 +6,18 @@ using UnityEngine;
 public class GroundEnemy : Enemy
 {
 
-    Rigidbody2D rig;
+    private Rigidbody2D rig;
+
     private Vector3 startingPosition;
     private Vector3 pathTo = Vector3.zero;
-    bool chasing = false;
-    bool dodging = false;
-    float acceleration = 0.1f;
-    GameObject chaseObject;
+
+    private float acceleration = 0.1f;
+
+    private bool chasing = false;
+    private bool dodging = false;
+    private bool wandering = true;
+
+    private GameObject chaseObject;
 
     private void Start()
     {
@@ -96,11 +101,14 @@ public class GroundEnemy : Enemy
     private IEnumerator Wander()
     {
         yield return new WaitForSeconds(GetWanderDelay());
-        if (Random.Range(0, 2) == 1)
+        if (wandering)
         {
-            PathTo(new Vector2(startingPosition.x + Random.Range(-GetRange(), GetRange()), 0));
+            if (Random.Range(0, 2) == 1)
+            {
+                PathTo(new Vector2(startingPosition.x + Random.Range(-GetRange(), GetRange()), 0));
+            }
+            StartCoroutine(Wander());
         }
-        StartCoroutine(Wander());
     }
 
     public void PathTo(Vector2 position)
@@ -123,7 +131,7 @@ public class GroundEnemy : Enemy
             dodging = false;
             chaseObject = collision.gameObject;
             chasing = true;
-            StopAllCoroutines();
+            wandering = false;
         }
     }
 
@@ -133,6 +141,7 @@ public class GroundEnemy : Enemy
         {
             chaseObject = null;
             chasing = false;
+            wandering = true;
             StartCoroutine(Wander());
         }
     }

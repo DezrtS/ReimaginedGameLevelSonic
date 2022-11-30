@@ -6,13 +6,17 @@ using UnityEngine.UIElements.Experimental;
 public class FlyingEnemy : Enemy
 {
     private Rigidbody2D rig;
+
     private Vector3 startingPosition;
     private Vector3 pathTo = Vector3.zero;
+
     private float power;
 
-    bool chasing = false;
-    bool dodging = false;
-    GameObject chaseObject;
+    private bool chasing = false;
+    private bool dodging = false;
+    private bool wandering = true;
+
+    private GameObject chaseObject;
 
     void Start()
     {
@@ -74,6 +78,7 @@ public class FlyingEnemy : Enemy
     {
         if (!dodging)
         {
+            dodging = true;
             if (Random.Range(0, 2) == 1)
             {
                 velocity.x = -velocity.x;
@@ -103,13 +108,16 @@ public class FlyingEnemy : Enemy
     private IEnumerator Wander()
     {
         yield return new WaitForSeconds(GetWanderDelay());
-        if (Random.Range(0, 2) == 1)
+        if (wandering)
         {
-            Vector2 direction = new Vector2(Random.Range(-100, 101), Random.Range(-100, 101)).normalized;
-            float distance = Random.Range(0, GetRange());
-            PathTo((Vector2)startingPosition + direction * distance);
+            if (Random.Range(0, 2) == 1)
+            {
+                Vector2 direction = new Vector2(Random.Range(-100, 101), Random.Range(-100, 101)).normalized;
+                float distance = Random.Range(0, GetRange());
+                PathTo((Vector2)startingPosition + direction * distance);
+            }
+            StartCoroutine(Wander());
         }
-        StartCoroutine(Wander());
     }
 
     public void PathTo(Vector2 position)
@@ -132,7 +140,7 @@ public class FlyingEnemy : Enemy
             dodging = false;
             chaseObject = collision.gameObject;
             chasing = true;
-            StopAllCoroutines();
+            wandering = false;
         }
     }
 
@@ -142,6 +150,7 @@ public class FlyingEnemy : Enemy
         {
             chaseObject = null;
             chasing = false;
+            wandering = true;
             StartCoroutine(Wander());
         }
     }
