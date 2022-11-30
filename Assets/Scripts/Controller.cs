@@ -60,10 +60,11 @@ public class Controller : MonoBehaviour
 
     private void Walking()
     {
-        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
         {
             MovementSpeed = 10;
         }
+
         if (Input.GetKey(KeyCode.D)) // detect while walking is the player input
         {
             if (MovementSpeed <= maxSpeed)
@@ -157,10 +158,15 @@ public class Controller : MonoBehaviour
         else return false;
     }
 
-    public void disableMovement(bool walking, bool jumping)
+    public void DisableMovement(bool walking, bool jumping)
     {
         canWalk = walking;
         canJump = jumping;
+    }
+
+    public void ResetMovementSpeed()
+    {
+        MovementSpeed = 10;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

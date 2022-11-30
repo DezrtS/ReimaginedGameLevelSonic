@@ -25,7 +25,8 @@ public class PlayerRoll : MonoBehaviour
         {
             if (!rolling)
             {
-                Controller.instance.disableMovement(false, false);
+                Controller.instance.DisableMovement(false, false);
+                Controller.instance.ResetMovementSpeed();
                 GetComponent<SpriteRenderer>().sprite = rollingSonic;
                 rig.freezeRotation = false;
                 rolling = true;
@@ -58,7 +59,7 @@ public class PlayerRoll : MonoBehaviour
 
         else if (Input.GetKeyUp(KeyCode.S))
         {
-            Controller.instance.disableMovement(true, true);
+            Controller.instance.DisableMovement(true, true);
             GetComponent<SpriteRenderer>().sprite = regularSonic;
             transform.eulerAngles = new Vector3(transform.rotation.x, transform.rotation.y, 0);
             rig.freezeRotation = true;
