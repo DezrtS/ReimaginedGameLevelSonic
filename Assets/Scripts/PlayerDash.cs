@@ -24,7 +24,7 @@ public class PlayerDash : MonoBehaviour
             {
                 rig.velocity = Vector2.zero;
                 Vector2 velocity = (closestEnemy.transform.position - transform.position).normalized * dashSpeed;
-                closestEnemy.GetComponent<FlyingEnemy>().Dodge(velocity);
+                closestEnemy.GetComponent<Enemy>().Dodge(velocity);
                 rig.AddForce(velocity, ForceMode2D.Impulse);
             }
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class FlyingEnemy : Enemy
 {
@@ -8,6 +9,10 @@ public class FlyingEnemy : Enemy
     private Vector3 startingPosition;
     private Vector3 pathTo = Vector3.zero;
     private float power;
+
+    bool chasing = false;
+    bool dodging = false;
+    GameObject chaseObject;
 
     void Start()
     {
@@ -20,6 +25,11 @@ public class FlyingEnemy : Enemy
 
     void Update()
     {
+        if (chasing && !dodging)
+        {
+            PathTo(chaseObject.transform.position);
+        }
+
         if (pathTo != Vector3.zero)
         {
             if ((pathTo - transform.position).magnitude > 0.1f)
@@ -59,23 +69,35 @@ public class FlyingEnemy : Enemy
         }
     }
 
+    override
     public void Dodge(Vector2 velocity)
     {
-        if (Random.Range(0, 2) == 1)
+        if (!dodging)
         {
-            velocity.x = -velocity.x;
-        } else
-        {
-            velocity.y = -velocity.y;
+            if (Random.Range(0, 2) == 1)
+            {
+                velocity.x = -velocity.x;
+            }
+            else
+            {
+                velocity.y = -velocity.y;
+            }
+
+            float x = velocity.x;
+            velocity.x = velocity.y;
+            velocity.y = x;
+
+            rig.velocity = Vector2.zero;
+            rig.AddForce(velocity.normalized * GetMaxSpeed(), ForceMode2D.Impulse);
+            PathTo((Vector2)transform.position + velocity.normalized * (GetRange()));
+            StartCoroutine(DodgeTimer());
         }
+    }
 
-        float x = velocity.x;
-        velocity.x = velocity.y;
-        velocity.y = x;
-
-        rig.velocity = Vector2.zero;
-        rig.AddForce(velocity.normalized * GetMaxSpeed(), ForceMode2D.Impulse);
-        PathTo((Vector2)transform.position + velocity.normalized * (GetRange()));
+    private IEnumerator DodgeTimer()
+    {
+        yield return new WaitForSeconds(2);
+        dodging = false;
     }
 
     private IEnumerator Wander()
@@ -100,6 +122,27 @@ public class FlyingEnemy : Enemy
         } else
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            dodging = false;
+            chaseObject = collision.gameObject;
+            chasing = true;
+            StopAllCoroutines();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            chaseObject = null;
+            chasing = false;
+            StartCoroutine(Wander());
         }
     }
 }

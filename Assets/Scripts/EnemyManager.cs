@@ -8,6 +8,8 @@ public class EnemyManager : MonoBehaviour
 
     private List<GameObject> enemies = new List<GameObject>();
 
+    public GameObject player;
+
     public float flyingEnemySpeed;
     public float flyingEnemyMaxSpeed;
     public float groundEnemySpeed;
@@ -22,6 +24,8 @@ public class EnemyManager : MonoBehaviour
             instance = this;
         }
     }
+
+
 
     public void AddEnemy(GameObject enemy)
     {

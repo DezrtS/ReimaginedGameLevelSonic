@@ -23,6 +23,20 @@ public class Enemy : MonoBehaviour
         EnemyManager.instance.AddEnemy(gameObject);
     }
 
+    
+    virtual public void Dodge(Vector2 velocity)
+    {
+
+    }
+
+    public void SetupEnemy()
+    {
+        EnemyManager enemyManager = EnemyManager.instance;
+        maxSpeed = enemyManager.groundEnemyMaxSpeed;
+        speed = enemyManager.groundEnemySpeed;
+        wanderDelay = enemyManager.wanderDelay;
+    }
+
     public float GetMaxSpeed()
     {
         return maxSpeed;
