@@ -8,13 +8,14 @@ public class Coin : MonoBehaviour
     public Text display;
     int score = 0;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Coin"))
         {
-            Destroy(this.gameObject);
-	        score += 1;
+            Destroy(other.gameObject);
+	        score ++;
 	        display.text = score.ToString();
+            print(score);
         }
     }
 }

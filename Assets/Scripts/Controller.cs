@@ -9,6 +9,8 @@ public class Controller : MonoBehaviour
     [SerializeField] private float MovementSpeed;
 
     [SerializeField] private float jumpVelocity;
+    [SerializeField] private float acceleration;
+    [SerializeField] private float maxSpeed;
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private LayerMask groundLayer;
 
@@ -31,19 +33,39 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (MovementSpeed > maxSpeed)
+        {
+            MovementSpeed = maxSpeed;
+        }
         Walking();
         Jumping();
     }
 
     private void Walking()
     {
+        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
+        {
+            MovementSpeed = 10;
+        }
         if (Input.GetKey(KeyCode.D)) // detect while walking is the player input
         {
+            if (MovementSpeed <= maxSpeed)
+            {
+               MovementSpeed *= acceleration;
+            }
             transform.position += transform.right * Time.deltaTime * MovementSpeed; // Time.deltaTime, it does not depend on the performance of your computer
             transform.rotation = Quaternion.Euler(0, 0, 0); // set the rotation of game object
+            
         }
         if (Input.GetKey(KeyCode.A))
         {
+            var numberOfLoops = 0;
+            float timepast = 0;
+            if (MovementSpeed <= maxSpeed)
+            {
+                MovementSpeed *= acceleration;
+            }
+
             transform.position += transform.right * Time.deltaTime * MovementSpeed;
             transform.rotation = Quaternion.Euler(0, 180, 0); //change y rotation to 180
         }
