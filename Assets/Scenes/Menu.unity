@@ -236,7 +236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.148701, y: -376}
+  m_AnchoredPosition: {x: -0.00001955, y: -452}
   m_SizeDelta: {x: 406.455, y: 190.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &264461174
@@ -1810,10 +1810,13 @@ MonoBehaviour:
     E
     - Dash Attack
 
+    S- Roll
+
     ESC - Pause
 
 
-    If you have 0 rings, the game is over!'
+    If you have 0 rings, the game
+    is over!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -1876,7 +1879,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -313.4464, y: -289.53967, z: -326.72815, w: -510.01465}
+  m_margin: {x: -313.4464, y: -214.71423, z: -326.72815, w: -510.01465}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
