@@ -20,6 +20,14 @@ public class Controller : MonoBehaviour
 
     [SerializeField] private float stoppingDistance;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private LayerMask gameOverLayer;
+
+    [SerializeField] private Sprite regularSonic;
+    [SerializeField] private Sprite runningSonic;
+    [SerializeField] private Sprite jumpingSonic;
+
+    private bool running;
+    private bool jumping;
 
     private Rigidbody2D rb;
     private float gravityScale;
@@ -40,7 +48,6 @@ public class Controller : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         gravityScale = rb.gravityScale;
-
     }
 
     // Update is called once per frame
@@ -64,10 +71,11 @@ public class Controller : MonoBehaviour
 
     private void Walking()
     {
-        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
         {
             MovementSpeed = 10;
         }
+
         if (Input.GetKey(KeyCode.D)) // detect while walking is the player input
         {
             if (MovementSpeed <= maxSpeed)
@@ -76,8 +84,8 @@ public class Controller : MonoBehaviour
             }
             transform.position += transform.right * Time.deltaTime * MovementSpeed; // Time.deltaTime, it does not depend on the performance of your computer
             transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z); // set the rotation of game object
-            
         }
+
         if (Input.GetKey(KeyCode.A))
         {
             var numberOfLoops = 0;
@@ -138,6 +146,7 @@ public class Controller : MonoBehaviour
 
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
+            SoundManager.PlaySound("Jump");
             rb.AddForce(transform.up * jumpVelocity, ForceMode2D.Impulse);
         }
     }
@@ -153,6 +162,11 @@ public class Controller : MonoBehaviour
         isGrounded = hit;
     }
 
+    public bool IsGrounded()
+    {
+        return isGrounded;
+    }
+
     private bool CheckIfPlayerShouldStop(Vector2 direction)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, stoppingDistance, wallLayer);
@@ -161,17 +175,24 @@ public class Controller : MonoBehaviour
         else return false;
     }
 
-    public void disableMovement(bool walking, bool jumping)
+    public void DisableMovement(bool walking, bool jumping)
     {
         canWalk = walking;
         canJump = jumping;
     }
 
+    public void ResetMovementSpeed()
+    {
+        MovementSpeed = 10;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "GameOver")
+        if (collision.gameObject.layer == gameOverLayer)
         {
-            SceneManager.LoadScene("End");
+            Debug.Log("Game Ended");
+            Debug.Log(collision.gameObject.name);
+            //SceneManager.LoadScene("End");
         }
     }
 }
