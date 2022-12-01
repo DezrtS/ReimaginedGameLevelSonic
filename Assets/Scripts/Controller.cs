@@ -184,11 +184,12 @@ public class Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == gameOverLayer)
+        if (collision.gameObject.layer == 9)
         {
-            Debug.Log("Game Ended");
-            Debug.Log(collision.gameObject.name);
-            //SceneManager.LoadScene("End");
+            SceneManager.LoadScene("End");
+        } else if (collision.gameObject.layer == 10)
+        {
+            SceneManager.LoadScene("Win");
         }
     }
 }

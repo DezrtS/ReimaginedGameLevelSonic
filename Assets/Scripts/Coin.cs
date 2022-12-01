@@ -20,6 +20,7 @@ public class Coin : MonoBehaviour
         {
             instance = this;
         }
+        display.text = score.ToString();
     }
 
 
@@ -34,8 +35,10 @@ public class Coin : MonoBehaviour
             SceneManager.LoadScene("End");
         } else
         {
+            dropCoins.Play();
             score = 0;
         }
+        display.text = score.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

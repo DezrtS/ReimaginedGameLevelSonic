@@ -6,6 +6,9 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float invicibilityTimer;
 
+    [SerializeField] private Color regularColor;
+    [SerializeField] private Color hurtColor;
+
     private bool invincible = false;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -20,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
                 Coin.instance.LoseCoins();
                 invincible = true;
                 StartCoroutine(InvicibilityTimer());
+                GetComponent<SpriteRenderer>().color = hurtColor;
             }
         }
     }
@@ -27,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator InvicibilityTimer()
     {
         yield return new WaitForSeconds(invicibilityTimer);
+        GetComponent<SpriteRenderer>().color = regularColor;
         invincible = false;
     }
 }

@@ -7,18 +7,19 @@ TagManager:
   - Coin
   - Enemy
   - GameOver
+  - WonGame
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - floor
+  - Player
   - Water
   - UI
-  - Wall
-  - Coin
-  - Enemy Zone
+  - Floors
+  - Walls
+  - Coins
   - Game Over Zone
-  - Player
+  - Won Game Zone
   - 
   - 
   - 

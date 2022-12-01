@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4195477766771170187}
   - component: {fileID: 6682486667454079602}
   m_Layer: 0
-  m_Name: GDW_2nd_Project
+  m_Name: Flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
