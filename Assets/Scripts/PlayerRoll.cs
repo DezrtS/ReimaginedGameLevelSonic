@@ -21,7 +21,7 @@ public class PlayerRoll : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && !PlayerDash.instance.IsDashing())
         {
             if (!rolling)
             {

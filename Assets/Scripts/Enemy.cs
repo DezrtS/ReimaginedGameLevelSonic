@@ -29,6 +29,12 @@ public class Enemy : MonoBehaviour
 
     }
 
+    public void Kill()
+    {
+        EnemyManager.instance.RemoveEnemy(gameObject);
+        Destroy(gameObject);
+    }
+
     public void SetupEnemy()
     {
         EnemyManager enemyManager = EnemyManager.instance;

@@ -6,8 +6,37 @@ using UnityEngine.SceneManagement;
 
 public class Coin : MonoBehaviour
 {
+    public static Coin instance;
+
     public Text display;
-    int score = 5;
+
+    [SerializeField] private ParticleSystem dropCoins;
+
+    int score = 0;
+
+    private void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
+
+    public void LoseCoins()
+    {
+        if (score - 7 > 0)
+        {
+            score = score - 7;
+            dropCoins.Play();
+        } else if (score == 0)
+        {
+            SceneManager.LoadScene("End");
+        } else
+        {
+            score = 0;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,10 +47,5 @@ public class Coin : MonoBehaviour
 	        display.text = score.ToString();
             print(score);
         }
-
-	if (score == 0)
-	{
-		SceneManager.LoadScene("End");
-	}
     }
 }

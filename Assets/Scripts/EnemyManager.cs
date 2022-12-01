@@ -32,6 +32,11 @@ public class EnemyManager : MonoBehaviour
         enemies.Add(enemy);
     }
 
+    public void RemoveEnemy(GameObject enemy)
+    {
+        enemies.Remove(enemy);
+    }
+
     public float GetDistanceTo(Vector3 from, Vector3 to)
     {
         return (to - from).magnitude;
