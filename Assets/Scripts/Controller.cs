@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class Controller : MonoBehaviour
 {
+    public Animator animator;
+
     public static Controller instance;
 
     [SerializeField] public float MovementSpeed;
@@ -51,6 +53,8 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+
         if (MovementSpeed > maxSpeed)
         {
             MovementSpeed = maxSpeed;
