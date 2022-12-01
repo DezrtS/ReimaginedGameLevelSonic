@@ -12465,7 +12465,7 @@ Animator:
   m_GameObject: {fileID: 274717697}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 588663dd066444eb6b5f2d44ddd5ab5f, type: 2}
+  m_Controller: {fileID: 9100000, guid: c61c22747a0e4f74e89227c460dac2e2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -45824,9 +45824,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 274717697}
   flyingEnemySpeed: 5
-  flyingEnemyMaxSpeed: 10
+  flyingEnemyMaxSpeed: 15
   groundEnemySpeed: 5
-  groundEnemyMaxSpeed: 10
+  groundEnemyMaxSpeed: 15
   wanderDelay: 5
 --- !u!4 &1046112932
 Transform:

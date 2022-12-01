@@ -53,7 +53,6 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 
         if (MovementSpeed > maxSpeed)
         {
@@ -61,11 +60,23 @@ public class Controller : MonoBehaviour
         }
         if (canWalk)
         {
+            animator.SetFloat("Horizontal", Mathf.Abs(Input.GetAxis("Horizontal")) + 1);
             Walking();
+        } else
+        {
+            animator.SetBool("isRunning", false);
         }
         if (canJump)
         {
             Jumping();
+        }
+        if (PlayerDash.instance.IsDashing())
+        {
+            animator.SetBool("isDashing", true);
+        }
+        else
+        {
+            animator.SetBool("isDashing", false);
         }
     }
 
@@ -78,6 +89,7 @@ public class Controller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D)) // detect while walking is the player input
         {
+            animator.SetBool("isRunning", true);
             if (MovementSpeed <= maxSpeed)
             {
                MovementSpeed *= acceleration;
@@ -88,6 +100,7 @@ public class Controller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
+            animator.SetBool("isRunning", true);
             var numberOfLoops = 0;
             float timepast = 0;
             if (MovementSpeed <= maxSpeed)
@@ -97,6 +110,11 @@ public class Controller : MonoBehaviour
 
             transform.position += transform.right * Time.deltaTime * MovementSpeed;
             transform.rotation = Quaternion.Euler(transform.rotation.x, 180, transform.rotation.z); //change y rotation to 180
+        }
+
+        if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        {
+            animator.SetBool("isRunning", false);
         }
 
         //
@@ -179,6 +197,13 @@ public class Controller : MonoBehaviour
     {
         canWalk = walking;
         canJump = jumping;
+        if (!walking && !jumping)
+        {
+            animator.SetBool("isRolling", true);
+        } else
+        {
+            animator.SetBool("isRolling", false);
+        }
     }
 
     public void ResetMovementSpeed()
