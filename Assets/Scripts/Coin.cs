@@ -46,6 +46,7 @@ public class Coin : MonoBehaviour
 	        score ++;
 	        display.text = score.ToString();
             print(score);
+            SoundManager.PlaySound("Coin");
         }
     }
 }
