@@ -17,11 +17,12 @@ public class Coin : MonoBehaviour
 	        score ++;
 	        display.text = score.ToString();
             print(score);
+            SoundManager.PlaySound("Coin");
         }
 
-	if (score == 0)
-	{
-		SceneManager.LoadScene("End");
-	}
+	    if (score == 0)
+	    {
+	    	SceneManager.LoadScene("End");
+	    }
     }
 }

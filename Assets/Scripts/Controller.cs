@@ -19,6 +19,13 @@ public class Controller : MonoBehaviour
     [SerializeField] private float stoppingDistance;
     [SerializeField] private LayerMask wallLayer;
 
+    [SerializeField] private Sprite regularSonic;
+    [SerializeField] private Sprite runningSonic;
+    [SerializeField] private Sprite jumpingSonic;
+
+    private bool running;
+    private bool jumping;
+
     private Rigidbody2D rb;
     private float gravityScale;
 
@@ -38,7 +45,6 @@ public class Controller : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         gravityScale = rb.gravityScale;
-
     }
 
     // Update is called once per frame
@@ -73,8 +79,8 @@ public class Controller : MonoBehaviour
             }
             transform.position += transform.right * Time.deltaTime * MovementSpeed; // Time.deltaTime, it does not depend on the performance of your computer
             transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z); // set the rotation of game object
-            
         }
+
         if (Input.GetKey(KeyCode.A))
         {
             var numberOfLoops = 0;
@@ -135,6 +141,7 @@ public class Controller : MonoBehaviour
 
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
+            SoundManager.PlaySound("Jump");
             rb.AddForce(transform.up * jumpVelocity, ForceMode2D.Impulse);
         }
     }
