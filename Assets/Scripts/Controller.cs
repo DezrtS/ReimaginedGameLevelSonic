@@ -18,6 +18,7 @@ public class Controller : MonoBehaviour
 
     [SerializeField] private float stoppingDistance;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private LayerMask gameOverLayer;
 
     [SerializeField] private Sprite regularSonic;
     [SerializeField] private Sprite runningSonic;
@@ -157,6 +158,11 @@ public class Controller : MonoBehaviour
         isGrounded = hit;
     }
 
+    public bool IsGrounded()
+    {
+        return isGrounded;
+    }
+
     private bool CheckIfPlayerShouldStop(Vector2 direction)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, stoppingDistance, wallLayer);
@@ -178,9 +184,11 @@ public class Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "GameOver")
+        if (collision.gameObject.layer == gameOverLayer)
         {
-            SceneManager.LoadScene("End");
+            Debug.Log("Game Ended");
+            Debug.Log(collision.gameObject.name);
+            //SceneManager.LoadScene("End");
         }
     }
 }
